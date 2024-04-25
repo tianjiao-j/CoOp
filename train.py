@@ -27,6 +27,8 @@ import trainers.coop
 import trainers.cocoop
 import trainers.zsclip
 
+import sys
+
 
 def print_args(args, cfg):
     print("***************")
@@ -100,6 +102,7 @@ def extend_cfg(cfg):
     cfg.TRAINER.COCOOP.PREC = "fp16"  # fp16, fp32, amp
 
     cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
+    #cfg.DATASET.NUM_SHOTS = 4  # fixme: number of shots
 
 
 def setup_cfg(args):
@@ -126,7 +129,14 @@ def setup_cfg(args):
 
 
 def main(args):
+    # args.root = '/home/tianjiao/PycharmProjects/Tip-Adapter/data'
+    # args.seed = 1
+    # args.trainer = "CoOp"
+    # args.dataset_config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/datasets/caltech101.yaml'
+    # args.config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/trainers/CoOp/rn50_ep50.yaml'
+    # args.output_dir = '/home/tianjiao/PycharmProjects/CoOp/output/caltech101/CoOp/rn50_ep50_4shots/nctx16_cscFalse_ctpend/seed1'
     cfg = setup_cfg(args)
+
     if cfg.SEED >= 0:
         print("Setting fixed seed: {}".format(cfg.SEED))
         set_random_seed(cfg.SEED)
@@ -136,8 +146,8 @@ def main(args):
         torch.backends.cudnn.benchmark = True
 
     print_args(args, cfg)
-    print("Collecting env info ...")
-    print("** System info **\n{}\n".format(collect_env_info()))
+    # print("Collecting env info ...")
+    # print("** System info **\n{}\n".format(collect_env_info()))
 
     trainer = build_trainer(cfg)
 

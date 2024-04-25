@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd ../..
+#cd ../..
 
 # custom config
-DATA=/path/to/datasets
+DATA=/home/tianjiao/PycharmProjects/Tip-Adapter/data/
 TRAINER=CoCoOp
 # TRAINER=CoOp
 

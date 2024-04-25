@@ -270,7 +270,7 @@ class CoOp(TrainerX):
             self.scaler.update()
         else:
             output = self.model(image)
-            loss = F.cross_entropy(output, label)
+            loss = F.cross_entropy(output.to(torch.float32), label)
             self.model_backward_and_update(loss)
 
         loss_summary = {
