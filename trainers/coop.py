@@ -197,13 +197,13 @@ class CustomCLIP(nn.Module):
 
         prompts = self.prompt_learner()
         tokenized_prompts = self.tokenized_prompts
-        text_features = self.text_encoder(prompts, tokenized_prompts)
+        text_features = self.text_encoder(prompts, tokenized_prompts)   # todo
 
         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
 
         logit_scale = self.logit_scale.exp()
-        logits = logit_scale * image_features @ text_features.t()
+        logits = logit_scale * image_features @ text_features.t()   # prediction logits
 
         return logits
 

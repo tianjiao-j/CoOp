@@ -31,17 +31,17 @@ import sys
 
 
 def print_args(args, cfg):
-    print("***************")
+    # print("***************")
     print("** Arguments **")
     print("***************")
-    optkeys = list(args.__dict__.keys())
-    optkeys.sort()
-    for key in optkeys:
-        print("{}: {}".format(key, args.__dict__[key]))
-    print("************")
-    print("** Config **")
-    print("************")
-    print(cfg)
+    # optkeys = list(args.__dict__.keys())
+    # optkeys.sort()
+    # for key in optkeys:
+    #     print("{}: {}".format(key, args.__dict__[key]))
+    # print("************")
+    # print("** Config **")
+    # print("************")
+    # print(cfg)
 
 
 def reset_cfg(cfg, args):
@@ -129,12 +129,12 @@ def setup_cfg(args):
 
 
 def main(args):
-    # args.root = '/home/tianjiao/PycharmProjects/Tip-Adapter/data'
-    # args.seed = 1
-    # args.trainer = "CoOp"
-    # args.dataset_config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/datasets/caltech101.yaml'
-    # args.config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/trainers/CoOp/rn50_ep50.yaml'
-    # args.output_dir = '/home/tianjiao/PycharmProjects/CoOp/output/caltech101/CoOp/rn50_ep50_4shots/nctx16_cscFalse_ctpend/seed1'
+    args.root = '/home/tianjiao/PycharmProjects/Tip-Adapter/data'
+    args.seed = 2
+    args.trainer = "CoOp"
+    args.dataset_config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/datasets/caltech101.yaml'
+    args.config_file = '/home/tianjiao/PycharmProjects/CoOp/configs/trainers/CoOp/rn50_ep50.yaml'
+    args.output_dir = '/home/tianjiao/PycharmProjects/CoOp/output/caltech101/CoOp/rn50_ep50_4shots/nctx16_cscFalse_ctpend/seed2'
     cfg = setup_cfg(args)
 
     if cfg.SEED >= 0:
