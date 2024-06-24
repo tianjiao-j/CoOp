@@ -298,7 +298,7 @@ class CoOp(TrainerX):
         names = self.get_model_names()
 
         # By default, the best model is loaded
-        model_file = "model-best.pth.tar"
+        model_file = "model-best.pth.tar"   # todo
 
         if epoch is not None:
             model_file = "model.pth.tar-" + str(epoch)

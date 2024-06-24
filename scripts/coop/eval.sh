@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # custom config
-DATA=/path/to/datasets
+DATA=../Tip-Adapter/data/
 TRAINER=CoOp
 SHOTS=16
 NCTX=16
@@ -11,7 +11,7 @@ CTP=end
 DATASET=$1
 CFG=$2
 
-for SEED in 1 2 3
+for SEED in 1
 do
     python train.py \
     --root ${DATA} \
